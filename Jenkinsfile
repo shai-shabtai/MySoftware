@@ -6,7 +6,7 @@ pipeline {
         string(name: 'GITHUB_URL', description: 'Enter the GITHUB URL', defaultValue: 'https://github.com/shai-shabtai/MySoftware.git')
     }
     triggers {
-        pollSCM '*/3 * * * *'
+        pollSCM '30 * * * *'
     }
     stages {
         stage('GitHub Checkout') {
