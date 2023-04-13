@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'python:3.10.7-alpine' } }
 
     parameters {
         string(name: 'BRANCH_NAME', description: 'Enter the name of the branch to build', defaultValue: 'master')
@@ -16,7 +16,6 @@ pipeline {
             }
         }
         stage('Execute python script') {
-        agent { docker { image 'python:3.10.7-alpine' } }
             steps {
                     sh "python3 main.py"
             }
